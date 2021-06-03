@@ -8,3 +8,7 @@ const spinner = () => {
     }
     process.stdout.write(hand)}, delay += 250)}
 };
+
+module.exports = {
+  spinner
+}
