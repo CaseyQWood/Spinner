@@ -1,9 +1,10 @@
-const slash = ['\r|', '\r/', '\r-', '\r\\', ];
-let delay = 0;
-
+const slash = ['\r|', '\r/', '\r-', '\r\\', '\r|'];
 const spinner = () => {
+  let delay = 0;
   for (const hand of slash) {
-  setTimeout(() => {process.stdout.write(hand)}, delay += 250)}
+  setTimeout(() => {
+    if (hand == '\r\\') {
+      setTimeout(() => {spinner()})
+    }
+    process.stdout.write(hand)}, delay += 250)}
 };
-
-spinner();
